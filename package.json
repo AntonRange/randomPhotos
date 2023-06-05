@@ -1,0 +1,22 @@
+{
+  "name": "randomphotos",
+  "version": "1.0.0",
+  "description": "generate random photos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AntonRange/randomPhotos.git"
+  },
+  "author": "Anton R",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AntonRange/randomPhotos/issues"
+  },
+  "homepage": "https://github.com/AntonRange/randomPhotos#readme",
+  "dependencies": {
+    "randomquotesbyanton": "^1.0.0"
+  }
+}

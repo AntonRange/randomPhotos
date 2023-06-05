@@ -1,20 +1,18 @@
-const { getRandomQuote } = require('randomquotesbyanton');
+import { fetchQuotes } from 'randomquotesbyanton';
 
 function randomCatsWithQuote() {
-  const quote = getRandomQuote();
-  
-  return fetch('https://cataas.com/cat')
-    .then(response => response.blob())
-    .then(data => {
+  return Promise.all([fetchQuotes(), fetch('https://cataas.com/cat')])
+    .then(([quotes, response]) => Promise.all([quotes, response.blob()]))
+    .then(([quotes, data]) => {
       const catUrl = URL.createObjectURL(data);
+      const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
       return {
-        quote: quote,
+        quote: randomQuote.text,
+        author: randomQuote.author,
         catUrl: catUrl
       };
     })
     .catch(error => console.error(error));
 }
 
-module.exports = {
-  randomCatsWithQuote
-};
+export { randomCatsWithQuote };
